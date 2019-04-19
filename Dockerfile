@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 RUN apt-get update && apt-get install -y \
     curl \
@@ -12,6 +12,7 @@ RUN apt-get install -y \
     && npm install -g gulp-cli \
     && gem install sass compass
 
+RUN useradd -ms /bin/bash  gulp
 WORKDIR /srv
 VOLUME /srv
 
@@ -19,6 +20,7 @@ ENV LC_ALL=C.UTF-8 \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8
 
+USER gulp
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
