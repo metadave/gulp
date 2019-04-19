@@ -22,6 +22,3 @@ ENV LC_ALL=C.UTF-8 \
 
 USER gulp
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["gulp"]
